@@ -25,7 +25,7 @@
     <div class="header">
       <swiper :options="swiperOption_banner">
         <swiper-slide class="" v-for="item in bannerList" :key="item.id">
-          <img :src="'http://www.akgvc.com/'+item.img" :alt="item">
+          <img :src="'http://www.decostudio.cn:8081/'+item.img" :alt="item">
         </swiper-slide>
       </swiper> 
     </div>
