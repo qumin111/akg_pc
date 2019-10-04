@@ -25,8 +25,9 @@
     <div class="header">
       <swiper :options="swiperOption_banner">
         <swiper-slide class="" v-for="item in bannerList" :key="item.id">
-          <img :src="'http://www.akgvc.com:8082/'+item.img" :alt="item">
+          <img :src="'http://www.akgvc.com:8082/'+item.img" alt="i" @click="jump(item.src)">
         </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
       </swiper> 
     </div>
 
@@ -214,7 +215,6 @@
 
           <ul class="text_center">
             <li class="xiaomishu font_14">{{$t('weixin')}}</li>
-            <li class="qqun font_14">{{$t('qq')}}</li>
           </ul>
         </div>
       </div>
@@ -264,6 +264,9 @@ export default {
           delay: 2500,
           disableOnInteraction: false
         },
+        pagination: {
+          el: '.swiper-pagination'
+        }
       },
       swiperOption: {
         loop: true,
@@ -293,6 +296,9 @@ export default {
     window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
   },
   methods: {
+    jump (a) {
+      window.open(a);
+    },
     showCode () {
       this.isShow = true;
     },
@@ -453,7 +459,7 @@ export default {
   background-color: #2E344C;
 }
 .nav_logo {
-  width: 70px;
+  width: 86px;
   height: 23.8px;
   background: url("../assets/logo_w.png") no-repeat center;
   background-size: cover;;
@@ -1036,6 +1042,29 @@ export default {
     height:60px;
     z-index: 10;
     cursor: pointer;
+}
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: opacity .3s;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 10;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+  }
+.swiper-pagination-bullet {
+    width: 30px;
+    height: 4px;
+    display: inline-block;
+    border-radius: 4px;
+    background: rgba(255,255,255,.4);
+    margin-right: 3px;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #fff;
 }
 .dialog {
   width: 100%;
