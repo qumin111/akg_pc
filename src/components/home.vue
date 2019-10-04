@@ -188,8 +188,8 @@
       <div class="w12">
         <div id="three">
           <div>
-            <h3 class="font_0 team_top color_33" :class="{'font_40 animated slideInLeft' : scroll_three_animate }">{{$t('nav_vision')}}</h3>
-            <p class="color_99 font_0 server_bot" :class="{'font_16 animated slideInLeft' : scroll_three_animate }">Vision</p>
+            <h3 class="font_0 team_top color_33" :class="{'font_40 animated slideInLeft' : scroll_vision_animate }">{{$t('nav_vision')}}</h3>
+            <p class="color_99 font_0 server_bot" :class="{'font_16 animated slideInLeft' : scroll_vision_animate }">Vision</p>
             <div class="line"></div>
           </div>
           <p class="color_99 font_14 about_des">{{$t('vision_one')}}<br>{{$t('vision_two')}}</p>
