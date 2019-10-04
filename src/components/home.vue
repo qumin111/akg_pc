@@ -25,16 +25,16 @@
     <div class="header">
       <swiper :options="swiperOption_banner">
         <swiper-slide class="" v-for="item in bannerList" :key="item.id">
-          <img :src="'http://www.decostudio.cn:8081/'+item.img" :alt="item">
+          <img :src="'http://www.akgvc.com:8082/'+item.img" :alt="item">
         </swiper-slide>
       </swiper> 
     </div>
 
 <!-- 我们的服务 -->
     <div class="bg_white text_center" id="one">
-      <div :class="{'animated pulse' : scroll_one_animate }">
-        <h3 class="font_40 server_top color_33">{{$t('nav_server')}}</h3>
-        <p class="color_99 font_16 server_bot">OUR SERVICES</p>
+      <div>
+        <h3 class="server_top color_33 font_0" :class="{'font_40 animated slideInLeft' : scroll_one_animate }">{{$t('nav_server')}}</h3>
+        <p class="color_99 server_bot font_0" :class="{'font_16 animated slideInLeft' : scroll_one_animate }">OUR SERVICES</p>
         <div class="line"></div>
       </div>
       <div class="server_flex w12">
@@ -78,8 +78,8 @@
     <div class="bg_white text_center ">
       <div class="w12">
         <div>
-          <h3 class="font_40 server_top color_33">{{$t('youshi')}}</h3>
-          <p class="color_99 font_16 server_bot">OUR ADVANTAGES</p>
+          <h3 class="font_0 server_top color_33" :class="{'font_40 animated slideInLeft' : scroll_youshi_animate }">{{$t('youshi')}}</h3>
+          <p class="color_99 font_0 server_bot" :class="{'font_16 animated slideInLeft' : scroll_youshi_animate }">OUR ADVANTAGES</p>
           <div class="line"></div>
         </div>
         <ul class="youshi_ul font_reg">
@@ -124,7 +124,7 @@
       </div>
       <div class="max_w case_cont">
         <div class="clear case_serve_one">
-          <div class="left" :class="{'case_bg_one animated bounceInLeft' : scroll_case_animate}"></div>
+          <div class="left" :class="{'case_bg_one animated bounceInLeft' : scroll_case_animate}" @click="caseBig"></div>
           <div class="case_txt left case_txt_r" :class="{'animated bounceInRight' : scroll_case_animate}">
             <p class="font_16">{{$t('tougu_server')}}</p>            
             <p class="color_33 font_24 case_jiben">{{$t('case_fenxi')}}</p>
@@ -144,9 +144,9 @@
   <!-- 团队成员 -->
       <div class="w12">
         <div id="two">
-          <div :class="{'animated pulse' : scroll_two_animate }">
-            <h3 class="font_40 team_top color_33">{{$t('nav_team')}}</h3>
-            <p class="color_99 font_16 server_bot">OUR TEAM</p>
+          <div class="">
+            <h3 class="font_0 team_top color_33" :class="{'font_40 animated slideInLeft' : scroll_two_animate }">{{$t('nav_team')}}</h3>
+            <p class="color_99 font_0 server_bot" :class="{'font_16 animated slideInLeft' : scroll_two_animate }">OUR TEAM</p>
             <div class="line"></div>
           </div>
           <swiper :options="swiperOption">
@@ -187,9 +187,9 @@
 <!-- AKG愿景 -->
       <div class="w12">
         <div id="three">
-          <div :class="{'animated pulse' : scroll_three_animate }">
-            <h3 class="font_40 team_top color_33">{{$t('nav_vision')}}</h3>
-            <p class="color_99 font_16 server_bot">Vision</p>
+          <div>
+            <h3 class="font_0 team_top color_33" :class="{'font_40 animated slideInLeft' : scroll_three_animate }">{{$t('nav_vision')}}</h3>
+            <p class="color_99 font_0 server_bot" :class="{'font_16 animated slideInLeft' : scroll_three_animate }">Vision</p>
             <div class="line"></div>
           </div>
           <p class="color_99 font_14 about_des">{{$t('vision_one')}}<br>{{$t('vision_two')}}</p>
@@ -207,9 +207,9 @@
         <p class="font_20 ">{{$t('nav_contact')}}</p>
         <div class="contact_flex">
           <ul>
-            <li class="contact_phone">400-0000-0</li>
-            <li class="contact_email">eixndkgjlskj@163.com</li>
-            <li class="contact_feiji">4567890</li>
+            <li class="contact_phone">718042970</li>
+            <li class="contact_email">official@akgvc.com</li>
+            <li class="contact_feiji">yunyingheima</li>
           </ul>
 
           <ul class="text_center">
@@ -220,13 +220,21 @@
       </div>
     </div>
 
-    <div class="footer text_center font_14">京ICP备案14246-46号</div>
+    <!-- <div class="footer text_center font_14">京ICP备案14246-46号</div> -->
     <transition name="slide-fade">
       <div class="dialog" v-if="isShow">
         <div>
-          <img src="../assets/zixuncode.jpg" alt="">
+          <img class="zuxuncode" src="../assets/zixuncode.jpg" alt="">
         </div>
         <span class="dialog_cancel" @click="cancel"></span>
+      </div>
+    </transition>
+    <transition name="slide-fade">
+      <div class="dialog" v-if="isShow_case">
+        <div>
+          <img class="case_big" src="../assets/case_big.png" alt="">
+        </div>
+        <span class="dialog_cancel" @click="cancelBig"></span>
       </div>
     </transition>
   </div>
@@ -238,6 +246,7 @@ export default {
   data () {
     return {
       isShow:false,
+      isShow_case:false,
       isActive: false,
       nav_black: false,
       scroll_one_animate: false,
@@ -273,8 +282,8 @@ export default {
     
   },
   created() {
-    this.$http.get('http://www.decostudio.cn:8081/port/Slide/getSlideList').then((res) => {
-        console.log(res);
+    this.$http.get('http://www.akgvc.com:8082/port/Slide/getSlideList').then((res) => {
+        // console.log(res);
         this.bannerList = res.data.data;
     }).catch((err) => {
         console.log(err);
@@ -290,6 +299,12 @@ export default {
     cancel () {
       this.isShow = false;
     },
+    caseBig () {
+      this.isShow_case = true;
+    },
+    cancelBig () {
+      this.isShow_case = false;
+    },
     muen: function () {
       this.isActive = !this.isActive;
     },
@@ -302,7 +317,7 @@ export default {
       } else {
          this.nav_black = false;
       }
-      if (docTop >= 500 && docTop < 900) {
+      if (docTop >= 400) {
         this.scroll_one_animate = true;
       }
       if (docTop >= 3100 && docTop < 4000) {
@@ -311,7 +326,7 @@ export default {
       if (docTop >= 4000 && docTop < 4200) {
         this.scroll_three_animate = true;
       } 
-      if (docTop >= 1500) {
+      if (docTop >= 1300) {
         this.scroll_youshi_animate = true;
       }
       if (docTop >= 1800) {
@@ -379,6 +394,9 @@ export default {
 .font_reg{
   font-family: 'PingFangSC-Regular'
 }
+.font_0 {
+  font-size: 0;
+}
 .font_40 {
   font-size: 40px; /*no*/
 }
@@ -437,7 +455,7 @@ export default {
 .nav_logo {
   width: 70px;
   height: 23.8px;
-  background: url("../assets/logo_w.jpg") no-repeat center;
+  background: url("../assets/logo_w.png") no-repeat center;
   background-size: cover;;
   cursor: pointer;
 }
@@ -547,6 +565,15 @@ export default {
   padding-top: 32px;
   padding-bottom: 46px;
 }
+.server_box:hover {
+  transform:scale(1.1,1.1);
+	-ms-transform:scale(1.1,1.1); /* IE 9 */
+	-webkit-transform:scale(1.1,1.1); /* Safari and Chrome */
+  transition:  transform 0.6s;
+  -moz-transition:  transform 0.6s; /* Firefox 4 */
+  -webkit-transition:  transform 0.6s; /* Safari 和 Chrome */
+  -o-transition:  transform 0.6s; /* Opera */
+}
 .icon_box {
   display: inline-block;
   width: 84px;
@@ -558,10 +585,14 @@ export default {
 .guwen {
   background:  url("../assets/guwen.png") no-repeat center;
   background-size: 36px;
+  -webkit-animation-delay: 0.4s;//延迟
+  animation-delay: 0.4s;
 }
 .zixun {
   background:  url("../assets/zixun.png") no-repeat center;
   background-size: 36px;
+  -webkit-animation-delay: 0.7s;//延迟
+  animation-delay: 0.7s;
 }
 .zixun_box_mag {
   margin-top: 10px;
@@ -684,24 +715,26 @@ export default {
 .shizi {
   background:  url("../assets/shizi.png") no-repeat center;
   background-size: 33px;
+  -webkit-animation-delay: 0.3s;//延迟
+  animation-delay: 0.3s;
 }
 .kecheng_icon {
   background:  url("../assets/kecheng.png") no-repeat center;
   background-size: 33px;
-  -webkit-animation-delay: 0.3s;//延迟
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.6s;//延迟
+  animation-delay: 0.6s;
 }
 .shequn {
   background:  url("../assets/shequn.png") no-repeat center;
   background-size: 33px;
-  -webkit-animation-delay: 0.6s;//延迟
-  animation-delay: 0.6s;
+  -webkit-animation-delay: 0.9s;//延迟
+  animation-delay: 0.9s;
 }
 .anli {
   background:  url("../assets/anli.png") no-repeat center;
   background-size: 33px;
-  -webkit-animation-delay: 0.9s;//延迟
-  animation-delay: 0.9s;
+  -webkit-animation-delay: 1.2s;//延迟
+  animation-delay: 1.2s;
 }
 .max_w {
   max-width: 1440px;
@@ -719,6 +752,7 @@ export default {
   height: 496px;
   background:  url("../assets/case_one.png") no-repeat left top;
   background-size: contain;
+  cursor: pointer;
 }
 .case_bg_two {
   width: 840px;
@@ -896,20 +930,22 @@ export default {
   display: inline-block;
   padding-top: 130px;
   width: 120px;
-  background:  url("../assets/xiaohongshu.png") no-repeat top center;
+  background:  url("../assets/zixuncode.jpg") no-repeat top center;
   background-size: 120px;
   line-height: 16px;
   margin-right: 80px;
   color: rgba(255,255,255,0.5);;
+  vertical-align: top;
 }
 .qqun {
   width: 120px;
   display: inline-block;
   padding-top: 130px;
-  background:  url("../assets/qqaun.png") no-repeat top center;
+  background:  url("../assets/zixuncode.jpg") no-repeat top center;
   background-size: 120px;
   line-height: 16px;
   color: rgba(255,255,255,0.5);
+  vertical-align: top;
 }
 .footer {
   background-color: #1C202F;
@@ -1010,11 +1046,17 @@ export default {
   background-color: rgba(0,0,0,0.5);
   text-align: center;
   z-index: 99;
-  img{
+  .zuxuncode{
     width: 200px;
     height: 200px;
     display: inline-block;
     margin-top: 100px;
+  }
+  .case_big{
+    width: 95%;
+    min-height: 300px;
+    display: inline-block;
+    margin-top: 50px;
   }
 }
 .dialog_cancel {
