@@ -558,11 +558,10 @@ export default {
   height: 684px;
   .swiper-container {
     padding-top:0;
-    height: 684px;
-    overflow: hidden;
   }
   img{
     width: 100%;
+    height: 684px;
   }
 }
 .tit_box {
