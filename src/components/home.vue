@@ -235,7 +235,7 @@
           <ul class="about_ul">
             <li :class="{'about_one animated flipInX' : scroll_vision_animate}" @click="jump('https://ftx.com/')"></li>
             <li :class="{'about_two animated flipInX' : scroll_vision_animate}" @click="jump('http://ufex.com/')"></li>
-            <li :class="{'about_three animated flipInX' : scroll_vision_animate}"></li>
+            <li :class="{'about_three animated flipInX' : scroll_vision_animate}" @click="jump(' http://www.lehmanbush.com/')"></li>
             <li :class="{'about_four animated flipInX' : scroll_vision_animate}" @click="jump('https://www.ccfox.com/')"></li>
           </ul>
         </div>
@@ -360,7 +360,6 @@ export default {
     handleScroll: function () {
       this.isActive = false;
       let docTop = document.documentElement.scrollTop;
-      console.log(docTop);
       if (docTop > 50) {
         this.nav_black = true;
       } else {
