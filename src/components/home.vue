@@ -960,6 +960,7 @@ export default {
   width: 280px;
   background:  url("../assets/about_three.png") no-repeat center;
   background-size: 220px; 
+  cursor: pointer;
 }
 .about_four {
   width: 280px;
