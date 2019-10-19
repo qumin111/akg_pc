@@ -944,6 +944,10 @@ export default {
       -webkit-animation-delay: .9s;//延迟
       animation-delay: .9s;
     }
+    li:nth-child(5) {
+      -webkit-animation-delay: .9s;//延迟
+      animation-delay: 1.2s;
+    }
 }
 .about_one {
   width: 200px;
