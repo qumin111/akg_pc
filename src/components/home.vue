@@ -237,6 +237,7 @@
             <li :class="{'about_two animated flipInX' : scroll_vision_animate}" @click="jump('http://ufex.com/')"></li>
             <li :class="{'about_three animated flipInX' : scroll_vision_animate}" @click="jump(' http://www.lehmanbush.com/')"></li>
             <li :class="{'about_four animated flipInX' : scroll_vision_animate}" @click="jump('https://www.ccfox.com/')"></li>
+            <li :class="{'about_five animated flipInX' : scroll_vision_animate}" @click="jump('http://ivorybaycapital.com/')"></li>
           </ul>
         </div>
       </div>
@@ -945,26 +946,32 @@ export default {
     }
 }
 .about_one {
-  width: 280px;
+  width: 200px;
   background:  url("../assets/about_one.png") no-repeat center;
   background-size: 160px; 
   cursor: pointer;
 }
 .about_two {
-  width: 280px;
+  width: 200px;
   background:  url("../assets/about_two.png") no-repeat center;
   background-size: 180px; 
   cursor: pointer;
 }
 .about_three {
-  width: 280px;
+  width: 200px;
   background:  url("../assets/about_three.png") no-repeat center;
   background-size: 220px; 
   cursor: pointer;
 }
 .about_four {
-  width: 280px;
+  width: 200px;
   background:  url("../assets/ccfox.jpeg") no-repeat center;
+  background-size: 220px; 
+  cursor: pointer;
+}
+.about_five {
+  width: 200px;
+  background:  url("../assets/about_five.jpg") no-repeat center;
   background-size: 220px; 
   cursor: pointer;
 }
