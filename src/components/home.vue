@@ -236,7 +236,7 @@
             <li :class="{'about_one animated flipInX' : scroll_vision_animate}" @click="jump('https://ftx.com/')"></li>
             <li :class="{'about_two animated flipInX' : scroll_vision_animate}" @click="jump('http://ufex.com/')"></li>
             <li :class="{'about_three animated flipInX' : scroll_vision_animate}" @click="jump(' http://www.lehmanbush.com/')"></li>
-            <li :class="{'about_four animated flipInX' : scroll_vision_animate}" @click="jump('https://www.ccfox.com/')"></li>
+            <li :class="{'about_four animated flipInX' : scroll_vision_animate}" @click="jump('https://www.ccfox.com/?from=akg')"></li>
             <li :class="{'about_five animated flipInX' : scroll_vision_animate}" @click="jump('http://ivorybaycapital.com/')"></li>
           </ul>
         </div>
@@ -969,7 +969,7 @@ export default {
 }
 .about_four {
   width: 200px;
-  background:  url("../assets/ccfox.jpeg") no-repeat center;
+  background:  url("../assets/ccfox.jpg") no-repeat center;
   background-size: 220px; 
   cursor: pointer;
 }
